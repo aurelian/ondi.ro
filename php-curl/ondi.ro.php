@@ -32,8 +32,8 @@ class OndiRequest {
   public function locate($name, $format=null) {
     $this->setup_format($format);
     $data= array(
-      'api_key'=>$this->api_key,
-      'name'=>urlencode($name)
+      'api_key' => $this->api_key,
+      'name'    => $name
     );
     return $this->get('/api/locate', $data);
   }
@@ -41,10 +41,10 @@ class OndiRequest {
   public function reverse($lat, $long, $radius=2.0, $format=null) {
     $this->setup_format($format);
     $data= array(
-      'api_key'=>$this->api_key,
-      'latitude'=>$lat,
-      'longitude'=>$long,
-      'radius'=>$radius
+      'api_key'   => $this->api_key,
+      'latitude'  => $lat,
+      'longitude' => $long,
+      'radius'    => $radius
     );
     return $this->get('/api/reverse', $data);
   }
@@ -52,8 +52,8 @@ class OndiRequest {
   public function where($text, $format=null) {
     $this->setup_format($format);
     $data= array(
-      'api_key'=>$this->api_key,
-      'text'=>$text);
+      'api_key' => $this->api_key,
+      'text'    => $text);
     return $this->post('/api/where', $data);
   }
 
@@ -95,8 +95,12 @@ class OndiResponse {
     $this->data= curl_exec($this->handler);
   }
 
-  public function __toString() {
+  public function data() {
     return $this->data;
+  }
+
+  public function __toString() {
+    return $this->data();
   }
 
 }
