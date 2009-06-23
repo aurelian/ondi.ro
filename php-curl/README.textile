@@ -1,0 +1,69 @@
+h2. PHP-cURL client to access http://ondi.ro API
+
+h3. Requirements
+
+* PHP 5
+* "ondi.ro api key":http://ondi.ro/account
+* "php-curl":http://php.net/curl extension
+
+h3. Install
+
+wget/download/git clone @ondi.ro.php@ (as raw file).
+
+h3. Usage
+
+<code>
+  require 'ondi.ro.php';
+  $request= new OndiRequest(API_KEY);
+</code>
+
+h4. PSEUDO - Geocoding with "/api/locate":http://ondi.ro/wiki/api/Locate
+
+@$response= $request->locate('Ploiești');@
+
+with format:
+
+@response= $request->locate('Ploiești', 'json');@
+
+h4. Reverse Geocoding with "/api/reverse":http://ondi.ro/wiki/api/Reverse
+
+@$response= $request->reverse($LAT, $LONG);@
+
+with parameters:
+
+@$response= $request->reverse($LAT, $LONG, 5, 'georss');@
+
+h4. Geoparsing with "/api/where":http://ondi.ro/wiki/api/Where
+
+@$response= $request->where("Caz şocant în judeţul Neamţ. Un copil de şase ani din localitatea Davideni era ţinut legat de mama sa, în timp ce femeia lucra la câmp.");@
+
+h3. Issues
+
+Use github "infrastructure":http://github.com/aurelian/ondi.ro/issues for that.
+Fork the project and send me a pull request for ideas/patches.
+
+h3. Licence
+
+<pre>
+Copyright (c) 2009 Aurelian Oancea, http://ondi.ro
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+</pre>
+
