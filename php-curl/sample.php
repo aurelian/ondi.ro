@@ -1,5 +1,5 @@
 <?php
-require 'ondi.ro.php'
+require 'ondi.ro.php';
 
 $r= new OndiRequest(YOUR_API_KEY);
 print $r->locate('Ploiesti');
