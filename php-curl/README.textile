@@ -12,20 +12,20 @@ wget/download/git clone @ondi.ro.php@ (as raw file).
 
 h3. Usage
 
-<code>
+<pre>
   require 'ondi.ro.php';
   $request= new OndiRequest(API_KEY);
-</code>
+</pre>
 
-h4. PSEUDO - Geocoding with "/api/locate":http://ondi.ro/wiki/api/Locate
+h4. "PSEUDO - Geocoding":http://ondi.ro/wiki/api/Locate with /api/locate
 
 @$response= $request->locate('Ploiești');@
 
 with format:
 
-@response= $request->locate('Ploiești', 'json');@
+@$response= $request->locate('Ploiești', 'json');@
 
-h4. Reverse Geocoding with "/api/reverse":http://ondi.ro/wiki/api/Reverse
+h4. "Reverse Geocoding":http://ondi.ro/wiki/api/Reverse with /api/reverse
 
 @$response= $request->reverse($LAT, $LONG);@
 
@@ -33,13 +33,13 @@ with parameters:
 
 @$response= $request->reverse($LAT, $LONG, 5, 'georss');@
 
-h4. Geoparsing with "/api/where":http://ondi.ro/wiki/api/Where
+h4. "Geoparsing":http://ondi.ro/wiki/api/Where with /api/where
 
 @$response= $request->where("Caz şocant în judeţul Neamţ. Un copil de şase ani din localitatea Davideni era ţinut legat de mama sa, în timp ce femeia lucra la câmp.");@
 
 h3. Issues
 
-Use github "infrastructure":http://github.com/aurelian/ondi.ro/issues for that.
+To report issues please use github "infrastructure":http://github.com/aurelian/ondi.ro/issues.
 Fork the project and send me a pull request for ideas/patches.
 
 h3. Licence
