@@ -19,23 +19,15 @@ h3. Usage
 
 h4. "PSEUDO - Geocoding":http://ondi.ro/wiki/api/Locate with /api/locate
 
-@$response= $request->locate('Ploiești');@
-
-with format:
-
-@$response= $request->locate('Ploiești', 'json');@
+@$response= $request->locate($name, $page= 1, $format= null);@
 
 h4. "Reverse Geocoding":http://ondi.ro/wiki/api/Reverse with /api/reverse
 
-@$response= $request->reverse($LAT, $LONG);@
-
-with parameters:
-
-@$response= $request->reverse($LAT, $LONG, 5, 'georss');@
+@$response= $request->reverse($lat, $long, $radius= 2,$page= 1, $format= null);@
 
 h4. "Geoparsing":http://ondi.ro/wiki/api/Where with /api/where
 
-@$response= $request->where("Caz şocant în judeţul Neamţ. Un copil de şase ani din localitatea Davideni era ţinut legat de mama sa, în timp ce femeia lucra la câmp.");@
+@$response= $request->where($text, $page= 1, $format= null);@
 
 h3. Issues
 

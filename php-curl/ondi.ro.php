@@ -29,31 +29,35 @@ class OndiRequest {
     curl_setopt($this->handler, CURLOPT_ENCODING, 'gzip,deflate');
   }
 
-  public function locate($name, $format=null) {
+  public function locate($name, $page = 1, $format=null) {
     $this->setup_format($format);
     $data= array(
       'api_key' => $this->api_key,
-      'name'    => $name
+      'name'    => $name,
+      'page'    => (int)$page
     );
     return $this->get('/api/locate', $data);
   }
 
-  public function reverse($lat, $long, $radius=2.0, $format=null) {
+  public function reverse($lat, $long, $radius=2.0, $page = 1, $format=null) {
     $this->setup_format($format);
     $data= array(
       'api_key'   => $this->api_key,
       'latitude'  => $lat,
       'longitude' => $long,
-      'radius'    => $radius
+      'radius'    => $radius,
+      'page'      => (int)$page
     );
     return $this->get('/api/reverse', $data);
   }
 
-  public function where($text, $format=null) {
+  public function where($text, $page = 1, $format=null) {
     $this->setup_format($format);
     $data= array(
       'api_key' => $this->api_key,
-      'text'    => $text);
+      'text'    => $text,
+      'page'    => (int)$page
+    );
     return $this->post('/api/where', $data);
   }
 
