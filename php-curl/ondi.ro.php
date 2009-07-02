@@ -24,12 +24,12 @@ class OndiRequest {
     curl_setopt($this->handler, CURLOPT_RETURNTRANSFER  ,1);
     curl_setopt($this->handler, CURLOPT_VERBOSE, 0);
     $x= curl_version();
-    $agent= sprintf("ondi.ro PHP-cURL 0.1/(PHP:%s, cURL:%s) +http://ondi.ro/clients.html", PHP_VERSION, $x['version']);
+    $agent= sprintf("ondi.ro PHP-cURL 0.2/(PHP:%s, cURL:%s, API: 0.5) +http://ondi.ro/clients.html", PHP_VERSION, $x['version']);
     curl_setopt($this->handler, CURLOPT_USERAGENT, $agent);
     curl_setopt($this->handler, CURLOPT_ENCODING, 'gzip,deflate');
   }
 
-  public function locate($name, $page = 1, $format=null) {
+  public function locate($name, $page= 1, $format= null) {
     $this->setup_format($format);
     $data= array(
       'api_key' => $this->api_key,
@@ -39,7 +39,7 @@ class OndiRequest {
     return $this->get('/api/locate', $data);
   }
 
-  public function reverse($lat, $long, $radius=2.0, $page = 1, $format=null) {
+  public function reverse($lat, $long, $radius= 2.0, $page= 1, $format= null) {
     $this->setup_format($format);
     $data= array(
       'api_key'   => $this->api_key,
@@ -51,7 +51,7 @@ class OndiRequest {
     return $this->get('/api/reverse', $data);
   }
 
-  public function where($text, $page = 1, $format=null) {
+  public function where($text, $page= 1, $format= null) {
     $this->setup_format($format);
     $data= array(
       'api_key' => $this->api_key,
